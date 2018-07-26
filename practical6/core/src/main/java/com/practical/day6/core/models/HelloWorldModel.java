@@ -30,23 +30,19 @@ public class HelloWorldModel {
     @Inject
     private SlingSettingsService settings;
 
+	private String returnedString;
+	
     @Inject @Named("sling:resourceType") @Default(values="No resourceType")
     protected String resourceType;
 
-	private String message;
-	
-	private String directMessage;
-    
-    @PostConstruct
+    private String directMessage;    @PostConstruct
     protected void init() {
-        message = "\tHello World!\n";
-		
-        message += "\tThis is instance: " + settings.getSlingId() + "\n";
-        message += "\tResource type is: " + resourceType + "\n";
-    }
+        returnedString = "\tHello World!\n";
+        returnedString += "\tThis is instance: " + settings.getSlingId() + "\n";
+        returnedString += "\tResource type is: " + resourceType + "\n";    }
 
-    public String getMessage() {
-        return message;
+    public String getReturnedString() {
+        return returnedString;
     }
 	
 	public String getDirectMessage(){
