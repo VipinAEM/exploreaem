@@ -35,7 +35,7 @@ public class HelloWorldModel {
     @Inject @Named("sling:resourceType") @Default(values="No resourceType")
     protected String resourceType;
 
-    @PostConstruct
+    private String directMessage;    @PostConstruct
     protected void init() {
         returnedString = "\tHello World!\n";
         returnedString += "\tThis is instance: " + settings.getSlingId() + "\n";
@@ -44,4 +44,8 @@ public class HelloWorldModel {
     public String getReturnedString() {
         return returnedString;
     }
+	
+	public String getDirectMessage(){
+		return directMessage;
+	}
 }
